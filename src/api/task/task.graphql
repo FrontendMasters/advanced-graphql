@@ -1,0 +1,31 @@
+enum Status {
+  open
+  working
+  reviewing
+  done
+}
+
+input ChangeStatusInput {
+  id: ID!
+  status: Status!
+}
+
+type Task {
+  id: ID!
+  name: String!
+  project: Project!
+  status: Status!
+  description: String!
+  createdAt: Float!
+  updatedAt: Float!
+}
+
+
+extend type Query {
+  task(id: ID): Task!
+}
+
+extend type Mutation {
+  changeStatus(input: ChangeStatusInput!): Task!
+  removeTask(id: ID!): Task!
+}

@@ -3,7 +3,7 @@ type Project {
   name: String!
   createdAt: Float!
   updatedAt: Float!
-  # tasks: [Task]!
+  tasks: [Task]!
 }
 
 input NewProjectInput {
