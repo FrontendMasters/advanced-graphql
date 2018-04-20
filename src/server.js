@@ -1,5 +1,7 @@
 const { GraphQLServer } = require('graphql-yoga')
 const gqlServerConfig = require('./api')
+require('./db')()
+
 const serverOptions = {
   port: 5000,
   endpoint: '/graphql',

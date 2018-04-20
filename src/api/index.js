@@ -1,12 +1,12 @@
-const product = require('./product')
+const project = require('./project')
 const merge = require('lodash/merge')
 
 module.exports = {
-  typeDefs: [product.typeDefs].join(' '),
-  resolvers: merge({}, product.resolvers),
+  typeDefs: [project.typeDefs].join(' '),
+  resolvers: merge({}, project.resolvers),
   context: {
     models: {
-      product: product.model
+      project: project.model
     }
   }
 }

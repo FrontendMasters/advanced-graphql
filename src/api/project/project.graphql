@@ -1,0 +1,19 @@
+type Project {
+  id: ID!
+  name: String!
+  createdAt: Float!
+  updatedAt: Float!
+  # tasks: [Task]!
+}
+
+input NewProjectInput {
+  name: String!
+}
+
+type Query {
+  project(id: ID!): Project!
+}
+
+type Mutation {
+  newProject(input: NewProjectInput!): Project!
+}
