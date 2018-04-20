@@ -1,0 +1,14 @@
+{
+  "name": "adv-gql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Scott Moss <willscottmoss@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.8.5",
+    "mongoose": "^5.0.15"
+  },
+  "scripts": {
+    "dev": "node src/server"
+  }
+}
