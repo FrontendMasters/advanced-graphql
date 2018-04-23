@@ -1,6 +1,7 @@
 type Project {
   id: ID!
   name: String!
+  description: String!
   createdAt: Float!
   updatedAt: Float!
   tasks: [Task]!
@@ -8,10 +9,17 @@ type Project {
 
 input NewProjectInput {
   name: String!
+  description: String
+}
+
+input ProjectInput {
+  name: String
+  id: ID
 }
 
 type Query {
-  project(id: ID!): Project!
+  project(input: ProjectInput!): Project!
+  projects: [Project]!
 }
 
 type Mutation {

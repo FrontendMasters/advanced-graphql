@@ -9,6 +9,9 @@
     "mongoose": "^5.0.15"
   },
   "scripts": {
-    "dev": "node src/server"
+    "dev": "nodemon src/server"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
   }
 }

@@ -13,6 +13,20 @@ module.exports = {
   Task: {
     id(task) {
       return task._id + ''
+    },
+    __resolveType(task) {
+      switch (task.type) {
+        case 'dev':
+          return 'DevTask'
+        case 'design':
+          return 'DesignTask'
+      }
     }
+  },
+  DevTask: {
+
+  },
+  DesignTask: {
+    
   }
 }

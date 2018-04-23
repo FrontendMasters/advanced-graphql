@@ -1,8 +1,64 @@
 enum Status {
-  open
-  working
-  reviewing
-  done
+  OPEN
+  IN_PROGRESS
+  REVIEWING
+  DONE
+}
+
+enum TaskType {
+  design
+  dev
+}
+
+interface Task {
+  id: ID!
+  name: String!
+  project: Project!
+  status: Status!
+  description: String!
+  tasks: [Task]!
+  parentTask: Task
+  type: TaskType!
+  dueDate: Float
+  createdAt: Float!
+  updatedAt: Float!
+}
+
+type Repo {
+  name: String!
+  tags: [String]!
+  description: String
+  url: String!
+}
+
+type DevTask implements Task {
+  id: ID!
+  name: String!
+  project: Project!
+  status: Status!
+  description: String!
+  tasks: [Task]!
+  parentTask: Task
+  type: TaskType!
+  dueDate: Float
+  createdAt: Float!
+  updatedAt: Float!
+  repo: Repo!
+}
+
+type DesignTask implements Task {
+  id: ID!
+  name: String!
+  project: Project!
+  status: Status!
+  description: String!
+  tasks: [Task]!
+  parentTask: Task
+  type: TaskType!
+  dueDate: Float
+  createdAt: Float!
+  updatedAt: Float!
+  assetUrl: String!
 }
 
 input ChangeStatusInput {
@@ -10,22 +66,29 @@ input ChangeStatusInput {
   status: Status!
 }
 
-type Task {
-  id: ID!
-  name: String!
-  project: Project!
-  status: Status!
-  description: String!
-  createdAt: Float!
-  updatedAt: Float!
+input TasksInput {
+  type: TaskType
+  status: Status
+  project: ID!
 }
 
+input NewTaskInput {
+  project: ID!
+  name: ID!
+  type: TaskType!
+  dueDate: Float
+  status: Status = OPEN
+  description: String
+  parentTask: ID
+}
 
 extend type Query {
   task(id: ID): Task!
+  tasks(input: TasksInput!): [Task]!
 }
 
 extend type Mutation {
+  newTask(input: NewTaskInput!): Task!
   changeStatus(input: ChangeStatusInput!): Task!
   removeTask(id: ID!): Task!
 }
