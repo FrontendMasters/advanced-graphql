@@ -4,7 +4,7 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  task: {
+  parentTask: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'task'
   },
@@ -31,19 +31,19 @@ const taskSchema = new mongoose.Schema({
       'REVIEWING',
       'DONE'
     ],
-    default: 'open'
+    default: 'OPEN'
   },
   description: String,
   repoUrl: {
     type: String,
-    required(doc) {
-      return doc.type === 'dev'
+    required() {
+      return this.type === 'dev'
     }
   },
   assetUrl: {
     type: String,
-    required (doc) {
-      return doc.type === 'design'
+    required () {
+      return this.type === 'design'
     }
   }
 }, {timestamps: true})

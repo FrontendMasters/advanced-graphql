@@ -15,7 +15,7 @@ interface Task {
   name: String!
   project: Project!
   status: Status!
-  description: String!
+  description: String
   tasks: [Task]!
   parentTask: Task
   type: TaskType!
@@ -36,7 +36,7 @@ type DevTask implements Task {
   name: String!
   project: Project!
   status: Status!
-  description: String!
+  description: String
   tasks: [Task]!
   parentTask: Task
   type: TaskType!
@@ -51,7 +51,7 @@ type DesignTask implements Task {
   name: String!
   project: Project!
   status: Status!
-  description: String!
+  description: String
   tasks: [Task]!
   parentTask: Task
   type: TaskType!
@@ -80,10 +80,18 @@ input NewTaskInput {
   status: Status = OPEN
   description: String
   parentTask: ID
+  repoUrl: String
+  assetUrl: String
+}
+
+input TaskInput {
+  project: ID!
+  id: ID
+  name: String
 }
 
 extend type Query {
-  task(id: ID): Task!
+  task(input: TaskInput!): Task!
   tasks(input: TasksInput!): [Task]!
 }
 
