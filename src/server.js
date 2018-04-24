@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { GraphQLServer } = require('graphql-yoga')
 const gqlServerConfig = require('./api')
 require('./db')()

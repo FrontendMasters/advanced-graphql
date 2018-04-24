@@ -26,7 +26,7 @@ interface Task {
 
 type Repo {
   name: String!
-  tags: [String]!
+  issueCount: Int!
   description: String
   url: String!
 }

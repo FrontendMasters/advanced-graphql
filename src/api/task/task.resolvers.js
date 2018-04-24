@@ -39,6 +39,7 @@ const taskResolvers = {
   }
 }
 
+
 module.exports = {
   Query: {
     task,
@@ -61,12 +62,14 @@ module.exports = {
   },
   DevTask: {
     ...taskResolvers,
-    repo(task) {
+    async repo(task, args, ctx) {
+      const name = 'tipe' || task.repoUrl.split['/'].pop()
+      const repo = await ctx.loaders.repo.load(name)
       return {
-        name: 'hello',
-        tags: [],
-        description: 'hello',
-        url: task.repoUrl
+        name: repo.name,
+        description: repo.description,
+        url: repo.html_url,
+        issueCount: repo.open_issues
       }
     }
   },

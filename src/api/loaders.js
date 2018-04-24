@@ -1,6 +1,7 @@
 const DataLoader = require('dataloader')
 const Project = require('./project/project.model')
 const Task = require('./task/task.model')
+const { reposForOrg } = require('./github')
 const _ = require('lodash')
 
 const createProjectLoader = () => {
@@ -27,9 +28,21 @@ const createTaskLoader = () => {
   })
 }
 
+const createGitHubLoader = () => {
+  return new DataLoader(repoNames => {
+    return reposForOrg()
+      .then(repos => {
+        console.log('github loader batch: ', repoNames.length)
+        const reposByName = _.keyBy(repos, 'name')
+        return repoNames.map(repoName => reposByName[repoName])
+      })
+  })
+}
+
 module.exports = () => {
   return {
     project: createProjectLoader(),
-    task: createTaskLoader()
+    task: createTaskLoader(),
+    repo: createGitHubLoader()
   }
 }

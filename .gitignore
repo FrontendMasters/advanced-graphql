@@ -2,3 +2,4 @@ node_modules
 *.log
 *.error
 .DS_Store
+.env
