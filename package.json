@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "nodemon src/server",
-    "test": "jest --forceExit --runInBand"
+    "test": "NODE_ENV=testing jest --forceExit --runInBand"
   },
   "devDependencies": {
     "graphql": "^0.13.2",

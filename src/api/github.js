@@ -1,9 +1,11 @@
 const octokit = require('@octokit/rest')()
 
-octokit.authenticate({
-  type: 'token',
-  token: process.env.GITHUB_TOKEN
-})
+if (process.env.NODE_ENV !== 'testing') {
+  octokit.authenticate({
+    type: 'token',
+    token: process.env.GITHUB_TOKEN
+  })
+}
 
 const reposForOrg = () => {
   return octokit.repos.getForOrg({

@@ -1,6 +1,6 @@
 const project = async (_, args, ctx, info) => {
   const project = await ctx.models.project
-    .findById(args.id)
+    .findById(args.input.id)
     .exec()
 
   if (!project) {

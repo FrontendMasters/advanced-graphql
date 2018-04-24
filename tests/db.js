@@ -16,7 +16,6 @@ const cleanDB = async (done) => {
 
 const connectToDB = async () => {
   const connection = await mongoose.connect('mongodb://localhost/done-test')
-  console.log('connected')
   return connection
 }
 
