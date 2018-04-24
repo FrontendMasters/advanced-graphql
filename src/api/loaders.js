@@ -17,26 +17,11 @@ const createProjectLoader = () => {
 }
 
 const createTaskLoader = () => {
-  return new DataLoader(taskIds => {
-    return Task.find({_id: {$in: taskIds}})
-      .exec()
-      .then(tasks => {
-        console.log('task loader batch: ', taskIds.length)
-        const tasksById = _.keyBy(tasks, '_id')
-        return taskIds.map(taskId => tasksById[taskId])
-      })
-  })
+  // create task loader here
 }
 
 const createGitHubLoader = () => {
-  return new DataLoader(repoNames => {
-    return reposForOrg()
-      .then(repos => {
-        console.log('github loader batch: ', repoNames.length)
-        const reposByName = _.keyBy(repos, 'name')
-        return repoNames.map(repoName => reposByName[repoName])
-      })
-  })
+  // create github loader here. Use function from ./github.js
 }
 
 module.exports = () => {

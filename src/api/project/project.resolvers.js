@@ -31,6 +31,7 @@ module.exports = {
       return project._id + ''
     },
     tasks(project, _, ctx) {
+      // can you find a way to use loader here?
       return ctx.models.task.find({
         project: project._id
       })

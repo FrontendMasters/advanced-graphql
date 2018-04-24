@@ -1,10 +1,12 @@
+const {reposForOrg} = require('../github')
+
 const task = (_, args, ctx) => {
   const {id: _id, name, project} = args.input
 
   if (!_id && !name) {
     throw new Error('Invalid input')
   }
-
+  // this is how you use a loader
   return ctx.loaders.task.load(_id)
 }
 const tasks = (_, args, ctx) => {
@@ -35,7 +37,10 @@ const taskResolvers = {
     return task._id + ''
   },
   project(task, args, ctx) {
-    return ctx.loaders.project.load(task.project)
+    // use loader instead
+    return ctx.models.project
+      .findById(task.project)
+      .exec()
   }
 }
 
@@ -64,7 +69,9 @@ module.exports = {
     ...taskResolvers,
     async repo(task, args, ctx) {
       const name = task.repoUrl.split('/').pop()
-      const repo = await ctx.loaders.repo.load(name)
+      // use loader instead
+      const repos = await reposForOrg()
+      const repo = repos.find(r => r.name === name)
       return {
         name: repo.name,
         description: repo.description,
