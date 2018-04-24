@@ -6,7 +6,6 @@ const task = (_, args, ctx) => {
   if (!_id && !name) {
     throw new Error('Invalid input')
   }
-  // this is how you use a loader
   return ctx.loaders.task.load(_id)
 }
 const tasks = (_, args, ctx) => {
@@ -37,7 +36,6 @@ const taskResolvers = {
     return task._id + ''
   },
   project(task, args, ctx) {
-    // use loader instead
     return ctx.models.project
       .findById(task.project)
       .exec()
@@ -69,7 +67,7 @@ module.exports = {
     ...taskResolvers,
     async repo(task, args, ctx) {
       const name = task.repoUrl.split('/').pop()
-      // use loader instead
+
       const repos = await reposForOrg()
       const repo = repos.find(r => r.name === name)
       return {
