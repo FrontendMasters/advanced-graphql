@@ -5,8 +5,7 @@ const task = (_, args, ctx) => {
     throw new Error('Invalid input')
   }
 
-  return ctx.models.task.findOne({_id, project})
-    .exec()
+  return ctx.loaders.task.load(_id)
 }
 const tasks = (_, args, ctx) => {
   return ctx.models.task.find(args.input)
@@ -14,16 +13,29 @@ const tasks = (_, args, ctx) => {
 const newTask = (_, args, ctx) => {
   return ctx.models.task.create(args.input)
 }
-const removeTask = () => {}
-const changeStatus = async () => {}
+const removeTask = async (_, args, ctx) => {
+  const task = await ctx.models.task
+    .findByIdAndRemove(args.id)
+    .exec()
+  
+  if (!task) {
+    throw new Error('No resource')
+  }
+  return task
+}
+const changeStatus = (_, args, ctx) => {
+  return ctx.models.task.findByIdAndUpdate(args.input.id, {
+    status: args.input.status
+  }, {new: true})
+  .exec()
+}
 
 const taskResolvers = {
   id(task) {
     return task._id + ''
   },
   project(task, args, ctx) {
-    console.log('heldflo')
-    return ctx.models.project.findById(task.project).exec()
+    return ctx.loaders.project.load(task.project)
   }
 }
 

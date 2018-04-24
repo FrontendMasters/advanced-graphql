@@ -5,7 +5,9 @@ require('./db')()
 const serverOptions = {
   port: 5000,
   endpoint: '/graphql',
-  playground: '/docs'
+  playground: '/docs',
+  tracing: true,
+  debug: true
 }
 
 const server = new GraphQLServer(gqlServerConfig)

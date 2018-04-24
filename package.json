@@ -5,7 +5,9 @@
   "author": "Scott Moss <willscottmoss@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "dataloader": "^1.4.0",
     "graphql-yoga": "^1.8.5",
+    "lodash": "^4.17.5",
     "mongoose": "^5.0.15"
   },
   "scripts": {

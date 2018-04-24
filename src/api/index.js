@@ -1,4 +1,5 @@
 const project = require('./project')
+const loaders = require('./loaders')
 const task = require('./task')
 const merge = require('lodash/merge')
 
@@ -12,6 +13,7 @@ module.exports = {
     models: {
       project: project.model,
       task: task.model
-    }
+    },
+    loaders: loaders()
   }
 }
