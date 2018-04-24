@@ -11,4 +11,6 @@ const projectSchema = new mongoose.Schema({
   }
 }, {timestamps: true})
 
+projectSchema.index({name: 'text'})
+
 module.exports = mongoose.model('project', projectSchema)

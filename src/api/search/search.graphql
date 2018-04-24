@@ -1,0 +1,5 @@
+union SearchResult = Project | DevTask | DesignTask
+
+extend type Query {
+  search(name: String!): [SearchResult]!
+}

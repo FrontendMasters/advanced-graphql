@@ -20,8 +20,8 @@ interface Task {
   parentTask: Task
   type: TaskType!
   dueDate: Float
-  createdAt: Float!
-  updatedAt: Float!
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Repo {
@@ -41,8 +41,8 @@ type DevTask implements Task {
   parentTask: Task
   type: TaskType!
   dueDate: Float
-  createdAt: Float!
-  updatedAt: Float!
+  createdAt: String!
+  updatedAt: String!
   repo: Repo!
 }
 
@@ -56,8 +56,8 @@ type DesignTask implements Task {
   parentTask: Task
   type: TaskType!
   dueDate: Float
-  createdAt: Float!
-  updatedAt: Float!
+  createdAt: String!
+  updatedAt: String!
   assetUrl: String!
 }
 

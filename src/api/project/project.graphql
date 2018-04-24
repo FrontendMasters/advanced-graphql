@@ -2,8 +2,8 @@ type Project {
   id: ID!
   name: String!
   description: String!
-  createdAt: Float!
-  updatedAt: Float!
+  createdAt: String!
+  updatedAt: String!
   tasks: [Task]!
 }
 

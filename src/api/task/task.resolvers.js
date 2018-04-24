@@ -63,7 +63,7 @@ module.exports = {
   DevTask: {
     ...taskResolvers,
     async repo(task, args, ctx) {
-      const name = 'tipe' || task.repoUrl.split['/'].pop()
+      const name = task.repoUrl.split('/').pop()
       const repo = await ctx.loaders.repo.load(name)
       return {
         name: repo.name,
