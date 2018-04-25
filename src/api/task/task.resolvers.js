@@ -55,12 +55,12 @@ module.exports = {
   },
   Task: {
     __resolveType(task) {
-      switch (task.type) {
-        case 'dev':
-          return 'DevTask'
-        case 'design':
-          return 'DesignTask'
-      }
+      /*
+        Resolve the Task interface
+        what is the difference between a DevTask and DesignTask?
+        is there a field on the task model that you can check?
+        A value?
+      */
     }
   },
   DevTask: {

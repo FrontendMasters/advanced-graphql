@@ -1,4 +1,5 @@
-union SearchResult = Project | DevTask | DesignTask
+# You must create a Union or Interface here, think about it
+# Make sure to name it SearchResult
 
 extend type Query {
   search(name: String!): [SearchResult]!
