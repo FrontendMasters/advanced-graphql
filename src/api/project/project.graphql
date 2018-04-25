@@ -1,7 +1,1 @@
-type HelloWorld {
-  message: String!
-}
-
-type Query {
-  helloWorld: HelloWorld
-}
+# Just create any Type and query you'd like!

@@ -1,8 +1,6 @@
-
+// resolve the query you made
 module.exports = {
   Query: {
-    helloWorld() {
-      return 'hello world'
-    }
+    
   }
 }
