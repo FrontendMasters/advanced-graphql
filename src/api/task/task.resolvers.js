@@ -31,18 +31,6 @@ const changeStatus = (_, args, ctx) => {
   .exec()
 }
 
-const taskResolvers = {
-  id(task) {
-    return task._id + ''
-  },
-  project(task, args, ctx) {
-    return ctx.models.project
-      .findById(task.project)
-      .exec()
-  }
-}
-
-
 module.exports = {
   Query: {
     task,
@@ -54,31 +42,18 @@ module.exports = {
     removeTask
   },
   Task: {
-    __resolveType(task) {
-      /*
-        Resolve the Task interface
-        what is the difference between a DevTask and DesignTask?
-        is there a field on the task model that you can check?
-        A value?
-      */
+    id(task) {
+      return task._id + ''
+    },
+    project(task, args, ctx) {
+      return ctx.models.project
+        .findById(task.project)
+        .exec()
+    },
+    parentTask(task, args, ctx) {
+      return ctx.models.task
+        .findById(task.parentTask)
+        .exec()
     }
-  },
-  DevTask: {
-    ...taskResolvers,
-    async repo(task, args, ctx) {
-      const name = task.repoUrl.split('/').pop()
-
-      const repos = await reposForOrg()
-      const repo = repos.find(r => r.name === name)
-      return {
-        name: repo.name,
-        description: repo.description,
-        url: repo.html_url,
-        issueCount: repo.open_issues
-      }
-    }
-  },
-  DesignTask: {
-    ...taskResolvers
   }
 }

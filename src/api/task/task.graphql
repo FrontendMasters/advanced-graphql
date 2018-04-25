@@ -10,12 +10,6 @@ enum TaskType {
   dev
 }
 
-# Right now, this is a type. But there are two Types of Tasks
-# DevTask and DesignTask
-# Rething making the Task type an interface instead
-# and create two new type (DevTask, DesignTask) that implement the
-# Task interface
-# don't forget to add the correct fields to the correct Type 💯
 type Task {
   id: ID!
   name: String!
@@ -28,9 +22,7 @@ type Task {
   dueDate: Float
   createdAt: String!
   updatedAt: String!
-  # devTask specific field
   repo: Repo!
-  # designTask specific task
   assetUrl: String!
 }
 

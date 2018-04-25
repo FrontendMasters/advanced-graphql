@@ -30,10 +30,9 @@ module.exports = {
     id(project) {
       return project._id + ''
     },
-    tasks(project, _, ctx) {
-      return ctx.models.task.find({
-        project: project._id
-      })
+    tasks(project, args, ctx) {
+      return ctx.models.task
+        .find({project: project._id})
         .exec()
     }
   }
