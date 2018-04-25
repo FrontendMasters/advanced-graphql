@@ -45,15 +45,6 @@ module.exports = {
     id(task) {
       return task._id + ''
     },
-    project(task, args, ctx) {
-      return ctx.models.project
-        .findById(task.project)
-        .exec()
-    },
-    parentTask(task, args, ctx) {
-      return ctx.models.task
-        .findById(task.parentTask)
-        .exec()
-    }
+    // resolve some fields here
   }
 }
