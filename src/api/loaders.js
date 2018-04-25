@@ -1,6 +1,5 @@
 const DataLoader = require('dataloader')
 const Project = require('./project/project.model')
-const Task = require('./task/task.model')
 const { reposForOrg } = require('./github')
 const _ = require('lodash')
 

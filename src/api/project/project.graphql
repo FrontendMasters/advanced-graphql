@@ -1,27 +1,7 @@
-type Project {
-  id: ID!
-  name: String!
-  description: String!
-  createdAt: String!
-  updatedAt: String!
-  tasks: [Task]!
-}
-
-input NewProjectInput {
-  name: String!
-  description: String
-}
-
-input ProjectInput {
-  name: String
-  id: ID
+type HelloWorld {
+  message: String!
 }
 
 type Query {
-  project(input: ProjectInput!): Project!
-  projects: [Project]!
-}
-
-type Mutation {
-  newProject(input: NewProjectInput!): Project!
+  helloWorld: HelloWorld
 }
