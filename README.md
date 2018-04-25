@@ -12,8 +12,6 @@ This course has a video component on FrontEnd Masters. It follows the video clos
 `lesson-{lesson number}`
 `lesson-{lesson-number}-solution`
 
-Each branch focuses on a specific topic and has instructions in it's README.
-
 ## Get started
 Check out to lesson 1
 `git checkout lesson-1`
