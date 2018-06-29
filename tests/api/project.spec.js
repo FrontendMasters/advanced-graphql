@@ -29,7 +29,7 @@ describe('Project', () => {
           }
         `
         const {data, errors} = await runQuery(query, input)
-        expect(errors).toBeUndefined
+        expect(errors).toBeUndefined()
         expect(data.project.id).toBe(project._id + '')
       })
     })
