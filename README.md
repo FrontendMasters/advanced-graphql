@@ -1,4 +1,4 @@
-# FrontEnd Masters: Advanced GraphQL APIs
+# Frontend Masters: [Advanced GraphQL APIs Course](https://frontendmasters.com/courses/advanced-graphql/)
 > Learn and advanced and practical approach to build a GraphQL API, by [Scott Moss](https://github.com/hendrixer)
 
 ### tech check
