@@ -10,7 +10,7 @@
     "dotenv": "^5.0.1",
     "graphql-yoga": "^1.8.5",
     "lodash": "^4.17.5",
-    "mongoose": "^5.0.15"
+    "mongoose": "^5.7.5"
   },
   "scripts": {
     "dev": "nodemon src/server",
