@@ -9,7 +9,7 @@
     "dataloader": "^1.4.0",
     "dotenv": "^5.0.1",
     "graphql-yoga": "^1.17.4",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.13",
     "mongoose": "^5.0.15"
   },
   "scripts": {
