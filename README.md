@@ -1,3 +1,6 @@
+> [!NOTE]
+> This repo is from an archived version of the course. Watch the latest version of the course on [frontendmasters.com](https://frontendmasters.com/courses/advanced-graphql-v2/).
+
 # Frontend Masters: [Advanced GraphQL APIs Course](https://frontendmasters.com/courses/advanced-graphql/)
 > Learn and advanced and practical approach to build a GraphQL API, by [Scott Moss](https://github.com/hendrixer)
 
